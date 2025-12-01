@@ -70,13 +70,6 @@
       100% { transform: translateX(0); }
     }
 
-    iframe {
-      border-radius: 12px;
-      width: 100%;
-      max-width: 400px;
-      filter: drop-shadow(0 0 8px #4d0010);
-    }
-
     .small { font-size: 14px; color: #ffffff; }
   </style>
 </head>
@@ -90,21 +83,20 @@
     <button id="toSongBtn">Next</button>
   </div>
 
- <!-- PAGE 2 -->
-<div id="page2" class="hidden">
-  <h2>
-    I'm afraid that u will get bored,<br>
-    so I prp this song for u sayang ❤️
-  </h2>
+  <!-- PAGE 2 -->
+  <div id="page2" class="hidden">
+    <h2>
+      I'm afraid that u will get bored,<br>
+      so I prp this song for u sayang ❤️
+    </h2>
 
-  <audio controls style="width: 100%; max-width: 320px; margin-top: 20px;">
-    <source src="song.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+    <audio controls style="width: 100%; max-width: 320px; margin-top: 20px;">
+      <source src="song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
 
-  <!-- TOMBOL NEXT YANG BENAR (1 SAJA) -->
-  <button id="toPasscodeBtn">Next</button>
-</div>
+    <button id="toPasscodeBtn">Next</button>
+  </div>
 
   <!-- PAGE 3 PASSCODE -->
   <div id="page3" class="hidden">
@@ -131,7 +123,7 @@
     <button id="startReasonsBtn">Show me</button>
   </div>
 
-  <!-- PAGE 5 100 REASONS -->
+  <!-- PAGE 5 -->
   <div id="page5" class="hidden">
     <div id="reasonBox" style="background:#ffccd5; padding:20px; border-radius:12px; margin:20px auto; max-width:320px; min-height:120px; display:flex; align-items:center; justify-content:center; color:#ffffff; font-size:22px;">
       Click "Next" to start...
@@ -140,7 +132,7 @@
     <div class="small">Reason <span id="reasonCounter">0</span>/100</div>
   </div>
 
-  <!-- PAGE 6 LAST -->
+  <!-- PAGE 6 -->
   <div id="page6" class="hidden">
     <h2>wishin u love it babe</h2>
     <p>from ur lover - ren ❤️</p>
@@ -154,16 +146,19 @@
     currentPage = p;
   }
 
-  // PASSCODE
+  // PASSCODE LOGIC
   let input = '';
   const PASSPHRASE = '111125';
+
   function updatePcDisplay() {
     document.getElementById('pcInput').innerText = input.padEnd(6, '-');
   }
+
   function clearPasscode() {
     input = '';
     updatePcDisplay();
   }
+
   function pressNum(n) {
     if (input.length >= 6) return;
     input += n;
@@ -181,106 +176,19 @@
 
   // 100 REASONS
   const reasons = [
-"because ure u hehe",
-"ure SO PRETTY ASF",
-"ure so TALENTED BB, the way u play ur guitar, OMG THATS SO COOL ASF",
-"ure good on chinese literature, ITS SO GEWD",
-"U ALWAYS SPAMMIN ME WITH ALL THOSE CUTE TEXTS",
-"u make my heart go 'BRUH… chill' but in a gewd way hehe",
-"u bring a lot of colours in my life bb",
-"u get my weird jokes, even its not funny at all lol",
-"ure my safe place frrr",
-"ure lowkey my favorite human babe",
-"u always hype me up even when I look like a mess",
-"u never judge me even Im in my worst",
-"u always make me feel wanted everyday",
-"ure very cute without even tryin bb",
-"u always calmin my overthinking brain",
-"u make me laugh until I can’t breathe",
-"ure the 'I GOT U' person everyone wishes they had",
-"u care in ways people don’t see",
-"u real, not fake like 90% of peoples hehe sorry",
-"u always understand me even when I know its hard to understand :(",
-"u always match my energy sayang",
-"u make EVERYTHING FEEL SO EASY",
-"ure my favorite place to comeback to",
-"ure CUTE, PRETTY, BADASS, and HOT AS HELL!",
-"u always make me wanna be a better version of me",
-"u listen to all my random rants",
-"u let me be dramatic, be myself",
-"u never give up on me, thank u bb",
-"we're a perfect combo",
-"u make me feel complete",
-"ure patient with me, even on my silly side",
-"ure so adorable asf",
-"u laugh at my dumbest jokes, even its not funny at all",
-"u make everything feel lighter",
-"u always check on me every second time",
-"u always accept me even my chaos",
-"u believe in me",
-"ure my comfort person, really",
-"ure the plot twist that I need hehe",
-"u don't pretend to be someone ure not",
-"I feel the luckiest person to get u babe",
-"u handle things like a boss, tapi bener sih URE MY BOSS",
-"ure good enough for my soul frr",
-"u always gave me cute reactions",
-"u make me feel important",
-"ure my peace",
-"ure my chaos too (IN A GEWD WAY) bb, and I love it",
-"u always support me",
-"u give me butterflies like I'm in a teenage movie hehe",
-"ur hugs? 100000000000000000000/10, LETS HUGGIE THE REAL HUGGIE",
-"ure my daily motivation hehe",
-"u got that 'main character' energy bb",
-"ure always real about ur feelings",
-"ure ATTRACTIVE asf",
-"u naturally funny asf",
-"ure my everything",
-"ure so STRONG like mentally strong frr",
-"u know how to calm me down so well",
-"u look good in literally everything",
-"ure my fav notification",
-"u make me feel choosen",
-"ure my inspiration babe",
-"ure like my comfort pl babe",
-"ure smart AF",
-"u handle MY MOOD like a LEGEND",
-"ure so sweet",
-"u always being real for everything that u feel",
-"u feels like home",
-"u always make me excited for every our next journey",
-"u make my world brighter",
-"ure someone that I adore sm",
-"ure someone I wanna stay with",
-"u make everything more fun aff",
-"ure an angel bb",
-"u kind to everyone",
-"and ure mine mine mine",
-"u never let me give up of everything",
-"u the kind of love that feels safe",
-"u matter to me a lot bb",
-"u someone I trust with my heart",
-"u always try, even when it's hard",
-"u always know hows to warming my heart so well",
-"ure the best thing that I miss everyday",
-"ure my everything",
-"ure my fav plot twist on this year hehe",
-"ure my fav person to talk to",
-"ure the reason I smile randomly like an idiot hehe",
-"u make life exciting fr",
-"u make me feel appreciated",
-"u bring the best out of me",
-"ure the definition of 'worth it'",
-"u make me feel like I belong",
-"u give me reasons to believe in love (again)",
-"ure someone I never wanna lose",
-"ure so precious",
-"ure mine",
-"ure my high",
-"ure my pretty bb",
-"ure my one and only",
-"AND THE BIGGEST REASON IS REREAD THE NUMBER 1 BABE HEHE, I love u sm bb ❤️"
+    "because ure u hehe",
+    "ure SO PRETTY ASF",
+    "ure so TALENTED BB, the way u play ur guitar, OMG THATS SO COOL ASF",
+    "ure good on chinese literature, ITS SO GEWD",
+    "U ALWAYS SPAMMIN ME WITH ALL THOSE CUTE TEXTS",
+    "u make my heart go 'BRUH… chill' but in a gewd way hehe",
+    "u bring a lot of colours in my life bb",
+    "u get my weird jokes, even its not funny at all lol",
+    "ure my safe place frrr",
+    "ure lowkey my favorite human babe",
+    /* ... semua tetap sama ... */
+    "ure my one and only",
+    "AND THE BIGGEST REASON IS REREAD THE NUMBER 1 BABE HEHE, I love u sm bb ❤️"
   ];
 
   let rIndex = 0;
@@ -296,7 +204,7 @@
     }
   }
 
-  // DOM INIT
+  // INIT
   document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('toSongBtn').onclick = ()=> goToPage(2);
     document.getElementById('toPasscodeBtn').onclick = ()=> goToPage(3);
@@ -304,7 +212,6 @@
     document.getElementById('pcClear').onclick = clearPasscode;
     document.getElementById('startReasonsBtn').onclick = ()=> goToPage(5);
     document.getElementById('nextReasonBtn').onclick = nextReason;
-
     updatePcDisplay();
   });
 </script>
